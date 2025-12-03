@@ -28,6 +28,13 @@ export class PostagemController {
   findById(@Param('id', ParseIntPipe) id: number): Promise<Postagem> {
     return this.postagemService.findById(id);
   }
+
+  @Get('/titulo/:titulo')
+  @HttpCode(HttpStatus.OK)
+  findByTitulo(@Param('titulo') titulo: string): Promise<Postagem[]> {
+    return this.postagemService.findByTitulo(titulo);
+  }
+
   @Post()
   @HttpCode(HttpStatus.CREATED)
   create(@Body() postagem: Postagem): Promise<Postagem> {
@@ -42,7 +49,7 @@ export class PostagemController {
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  delete(@Param("id", ParseIntPipe) id: number) {
+  delete(@Param('id', ParseIntPipe) id: number) {
     return this.postagemService.delete(id);
   }
 }

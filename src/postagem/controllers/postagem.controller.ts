@@ -1,21 +1,10 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Param,
-  ParseIntPipe,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { PostagemService } from '../services/postagem.service';
-import { Postagem } from '../entities/postagem.entity';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Postagem } from "../entities/postagem.entity";
+import { PostagemService } from "../services/postagem.service";
 
-@Controller('/postagens')
+@Controller("/postagens")
 export class PostagemController {
-  constructor(private readonly postagemService: PostagemService) {}
+  constructor(private readonly postagemService: PostagemService) { }
 
   @Get()
   @HttpCode(HttpStatus.OK)
@@ -32,7 +21,7 @@ export class PostagemController {
   @Get('/titulo/:titulo')
   @HttpCode(HttpStatus.OK)
   findByTitulo(@Param('titulo') titulo: string): Promise<Postagem[]> {
-    return this.postagemService.findByTitulo(titulo);
+    return this.postagemService.findAllByTitulo(titulo);
   }
 
   @Post()
@@ -49,7 +38,8 @@ export class PostagemController {
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  delete(@Param('id', ParseIntPipe) id: number) {
+  delete(@Param('id', ParseIntPipe) id: number){
     return this.postagemService.delete(id);
   }
+
 }

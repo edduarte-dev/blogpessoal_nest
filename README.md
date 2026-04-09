@@ -1,125 +1,126 @@
-📘 BlogPessoal
+# BlogPessoal
 
-API RESTful de Blog construída com NestJS, TypeORM e MySQL 
+API RESTful de blog construída com NestJS, TypeORM e MySQL.
 
-<div align="center">
+---
 
+## Sobre o projeto
 
+Implementação de um CRUD completo de postagens com foco em boas práticas, organização e desenvolvimento de APIs profissionais.
 
+Funcionalidades:
 
+- Gerenciamento de postagens (título, texto e data)
+- Validações com `class-validator`
+- Persistência com TypeORM + MySQL
+- Testes end-to-end com Jest + Supertest
 
+---
 
+## Tech Stack
 
+- Node.js + TypeScript
+- NestJS
+- TypeORM + MySQL
+- class-validator / class-transformer
 
+---
 
+## Como rodar o projeto
 
-</div>
-📌 Sobre o projeto
+**1. Instalar dependências**
 
-Esta API implementa um CRUD completo de postagens, incluindo:
-
-✍️ Título, texto e data
-
-🔒 Validações com class-validator
-
-🗄️ Persistência com TypeORM + MySQL
-
-🧪 Testes end-to-end com Jest + Supertest
-
-O foco do projeto é demonstrar boas práticas, organização e capacidade de desenvolver APIs profissionais.
-
-🧱 Tech Stack
-
-🟩 Node.js + TypeScript
-
-🔺 NestJS
-
-🗄️ TypeORM + MySQL
-
-🧹 class-validator / class-transformer
-
-
-🚀 Como rodar o projeto
-1️⃣ Instalar dependências
+```bash
 npm install
+```
 
-2️⃣ Configurar variáveis de ambiente (.env)
+**2. Configurar variáveis de ambiente (`.env`)**
+
+```env
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
 DB_PASS=sua-senha
 DB_NAME=blogpessoal
+```
 
-3️⃣ Rodar em desenvolvimento
+**3. Rodar em desenvolvimento**
+
+```bash
 npm run start:dev
+```
 
-4️⃣ Executar testes end-to-end
+**4. Executar testes end-to-end**
+
+```bash
 npm run test:e2e
+```
 
-📂 Estrutura principal do projeto
+---
+
+## Estrutura do projeto
+
+```
 src/
  ├── postagem/
- │    ├── entities/postagem.entity.ts      # Entidade Postagem
- │    ├── controllers/postagem.controller.ts  # Rotas CRUD
- │    └── services/postagem.service.ts     # Lógica de negócio
- ├── app.module.ts                         # Configurações e módulos
- └── main.ts                               # Entry point
+ │    ├── entities/postagem.entity.ts
+ │    ├── controllers/postagem.controller.ts
+ │    └── services/postagem.service.ts
+ ├── app.module.ts
+ └── main.ts
+```
 
-🧪 Testes
+---
 
-Os testes e2e garantem o funcionamento real da aplicação:
+## Testes
 
-Criar postagem
+Os testes e2e cobrem os fluxos principais da aplicação:
 
-Listar postagens
+- Criar postagem
+- Listar postagens
+- Atualizar postagem
+- Remover postagem
 
-Atualizar postagem
+---
 
-Remover postagem
+## Boas práticas aplicadas
 
-Rodar:
+- Arquitetura modular do NestJS
+- DTOs com validações centralizadas
+- Formatação com Prettier e ESLint
+- Separação clara entre camadas (controller → service → repository)
+- Testes cobrindo os fluxos principais
 
-npm run test:e2e
+---
 
-💡 Boas práticas aplicadas
+## Endpoints
 
-Arquitetura modular do NestJS
+| Método | Rota              | Descrição             |
+|--------|-------------------|-----------------------|
+| GET    | /postagens        | Lista todas as postagens |
+| POST   | /postagens        | Cria uma nova postagem |
+| PUT    | /postagens/:id    | Atualiza uma postagem  |
+| DELETE | /postagens/:id    | Remove uma postagem    |
 
-DTOs com validações centralizadas
+**Exemplo de requisição:**
 
-Código formatado com prettier/eslint
-
-Testes cobrindo os fluxos principais
-
-Separação clara entre camadas (controller → service → repository)
-
-📸 Demonstração (sugestão para o portfólio)
-GET /postagens
-POST /postagens
-PUT /postagens/:id
-DELETE /postagens/:id
-
-
-Exemplo de requisição:
-
+```json
 {
   "titulo": "Meu primeiro post",
   "texto": "Conteúdo da postagem"
 }
+```
 
+---
 
-Se quiser, posso gerar coleção do Postman / Insomnia para incluir no repositório.
+## Contato
 
-📬 Contato
+Eduardo Duarte  
+edu.duartecunha@gmail.com  
+[github.com/edduarte-dev](https://github.com/edduarte-dev)
 
-Seu Nome
-📧 seu-email@example.com
+---
 
+## Licença
 
-🐙 GitHub: https://github.com/seu-usuario
-📄 Licença
-
-MIT — sinta-se livre para usar e adaptar.
-
-
-
+MIT — livre para usar e adaptar.
